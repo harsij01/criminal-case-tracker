@@ -97,7 +97,7 @@ CREATE TABLE reports (
     FOREIGN KEY("investigator_id") REFERENCES "investigators"("id") ON DELETE CASCADE
 );
 
-INSERT INTO cases (case_number, title, type, status, opened_date, closed_date, description) VALUES
+INSERT INTO cases ("case_number", "title", "type", "status", "opened_date", "closed_date", "description") VALUES
 ('CR-2021-001', 'Downtown Bank Robbery', 'Robbery', 'Closed', '2021-03-15', '2021-06-20', 'Armed robbery at First National Bank on 5th Ave. Three suspects involved.'),
 ('CR-2021-002', 'Westside Homicide', 'Murder', 'Closed', '2021-07-02', '2022-01-14', 'Victim found deceased in Westside apartment. Suspected domestic dispute.'),
 ('CR-2022-001', 'Corporate Fraud Scheme', 'Fraud', 'Under Investigation', '2022-02-10', NULL, 'Large-scale financial fraud involving falsified company records and embezzlement.'),
@@ -109,7 +109,7 @@ INSERT INTO cases (case_number, title, type, status, opened_date, closed_date, d
 ('CR-2024-001', 'Midtown Stabbing', 'Assault', 'Open', '2024-02-14', NULL, 'Stabbing incident outside Midtown nightclub. Suspect fled the scene.'),
 ('CR-2024-002', 'Cold Case Revisit - 2019 Homicide', 'Murder', 'Cold', '2024-05-01', NULL, 'Reopened cold case from 2019. New DNA evidence submitted for analysis.');
 
-INSERT INTO suspects (first_name, last_name, dob, gender, nationality, contact_info, status, criminal_record) VALUES
+INSERT INTO suspects ("first_name", "last_name", "dob", "gender", "nationality", "contact_info", "status", "criminal_record") VALUES
 ('Victor', 'Hale', '1988-04-11', 'Male', 'American', '555-0101', 'Convicted', 'Prior robbery, 2018'),
 ('Danny', 'Marsh', '1992-08-23', 'Male', 'American', '555-0102', 'Convicted', 'Assault, 2019'),
 ('Rosa', 'Vega', '1985-12-30', 'Female', 'Mexican', '555-0103', 'Released', 'Fraud, 2017'),
@@ -121,7 +121,7 @@ INSERT INTO suspects (first_name, last_name, dob, gender, nationality, contact_i
 ('Jake', 'Holloway', '1987-11-02', 'Male', 'American', NULL, 'At Large', 'Robbery, 2016'),
 ('Diana', 'Cross', '1993-01-17', 'Female', 'Canadian', '555-0110', 'Released', 'None');
 
-INSERT INTO victims (first_name, last_name, dob, gender, nationality, contact_info, statement) VALUES
+INSERT INTO victims ("first_name", "last_name", "dob", "gender", "nationality", "contact_info", "statement") VALUES
 ('Robert', 'Lane', '1965-05-20', 'Male', 'American', '555-0201', 'I was behind the counter when three masked men entered and demanded cash.'),
 ('Linda', 'Park', '1978-11-13', 'Female', 'Korean', '555-0202', 'I heard shouting and then a gunshot from the next room.'),
 ('George', 'Simmons', '1952-08-07', 'Male', 'American', '555-0203', 'They contacted me pretending to be from the IRS and I transferred the funds.'),
@@ -133,7 +133,7 @@ INSERT INTO victims (first_name, last_name, dob, gender, nationality, contact_in
 ('Chris', 'Adams', '1996-07-22', 'Male', 'American', '555-0209', 'Someone came up and stabbed me. I did not see their face clearly.'),
 ('Mary', 'Collins', '1955-04-10', 'Female', 'American', '555-0210', 'My husband never came home that night. That is all I know.');
 
-INSERT INTO investigators (badge_number, first_name, last_name, dob, gender, rank, department, contact_info) VALUES
+INSERT INTO investigators ("badge_number", "first_name", "last_name", "dob", "gender", "rank", "department", "contact_info") VALUES
 ('B001', 'James', 'Carter', '1975-03-12', 'Male', 'Detective', 'Homicide', 'james.carter@police.gov'),
 ('B002', 'Sarah', 'Mitchell', '1980-07-24', 'Female', 'Sergeant', 'Narcotics', 'sarah.mitchell@police.gov'),
 ('B003', 'David', 'Nguyen', '1983-11-05', 'Male', 'Lieutenant', 'Cyber Crime', 'david.nguyen@police.gov'),
