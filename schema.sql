@@ -43,3 +43,16 @@ CREATE TABLE investigators (
     "department" TEXT,
     "contact_info" TEXT
 );
+
+CREATE TABLE evidence (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "case_id" INTEGER NOT NULL,
+    "type" TEXT NOT NULL,
+    "description" TEXT,
+    "collected_date" DATE NOT NULL,
+    "collected_by" INTEGER NOT NULL,
+    "location_found" TEXT NOT NULL,
+    "status" TEXT NOT NULL CHECK("status" IN ('In Storage', 'Submitted to Lab', 'Destroyed')),
+    FOREIGN KEY("case_id") REFERENCES "cases"("id") ON DELETE CASCADE,
+    FOREIGN KEY("collected_by") REFERENCES "investigators"("id") ON DELETE CASCADE
+);
