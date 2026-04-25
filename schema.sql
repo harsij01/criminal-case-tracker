@@ -66,3 +66,12 @@ CREATE TABLE case_suspects (
     FOREIGN KEY("case_id") REFERENCES "cases"("id"),
     FOREIGN KEY("suspect_id") REFERENCES "suspects"("id")
 );
+
+CREATE TABLE case_victims (
+    "case_id" INTEGER NOT NULL,
+    "victim_id" INTEGER NOT NULL,
+    "harm_type" TEXT NOT NULL CHECK("harm_type" IN ('Physical', 'Financial', 'Emotional', 'Death')),
+    PRIMARY KEY("case_id", "victim_id"),
+    FOREIGN KEY("case_id") REFERENCES "cases"("id"),
+    FOREIGN KEY("victim_id") REFERENCES "victims"("id")
+);
