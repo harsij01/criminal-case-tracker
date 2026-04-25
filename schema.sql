@@ -175,7 +175,7 @@ INSERT INTO case_suspects ("case_id", "suspect_id", "role", "date_linked") VALUE
 (9, 8, 'Person of Interest', '2024-02-16'),
 (10, 7, 'Person of Interest', '2024-05-10');
 
-INSERT INTO case_victims (case_id, victim_id, harm_type) VALUES
+INSERT INTO case_victims ("case_id", "victim_id", "harm_type") VALUES
 (1, 1, 'Physical'),
 (2, 2, 'Death'),
 (3, 3, 'Financial'),
@@ -189,7 +189,7 @@ INSERT INTO case_victims (case_id, victim_id, harm_type) VALUES
 (9, 9, 'Physical'),
 (10, 10, 'Emotional');
 
-INSERT INTO case_investigators (case_id, investigator_id, role, assigned_date) VALUES
+INSERT INTO case_investigators ("case_id", "investigator_id", "role", "assigned_date") VALUES
 (1, 1, 'Lead Investigator', '2021-03-15'),
 (1, 4, 'Support', '2021-03-15'),
 (2, 1, 'Lead Investigator', '2021-07-02'),
@@ -210,3 +210,25 @@ INSERT INTO case_investigators (case_id, investigator_id, role, assigned_date) V
 (9, 7, 'Support', '2024-02-14'),
 (10, 5, 'Lead Investigator', '2024-05-01'),
 (10, 6, 'Forensics', '2024-05-03');
+
+INSERT INTO reports ("case_id", "investigator_id", "report_date", "type", "content") VALUES
+(1, 1, '2021-03-15', 'Incident', 'Three armed suspects entered First National Bank at 14:32. Cashier Robert Lane was threatened at gunpoint. Approximately $85,000 was taken.'),
+(1, 1, '2021-04-10', 'Progress', 'Suspects identified via CCTV. Victor Hale and Danny Marsh taken into custody. Third suspect Jake Holloway still at large.'),
+(1, 1, '2021-06-20', 'Closing', 'Case closed. Victor Hale and Danny Marsh convicted. Jake Holloway remains a fugitive.'),
+(2, 1, '2021-07-02', 'Incident', 'Victim Linda Park found deceased in Westside apartment. Cause of death: blunt force trauma. No forced entry detected.'),
+(2, 6, '2021-07-05', 'Forensic', 'DNA samples collected from scene. Blood found matches suspect Marcus Stone from prior database records.'),
+(2, 1, '2022-01-14', 'Closing', 'Marcus Stone convicted of second-degree murder. Case closed.'),
+(3, 3, '2022-02-10', 'Incident', 'Tip received regarding falsified financial records at Meridian Corp. Digital forensics team engaged.'),
+(3, 3, '2023-01-15', 'Progress', 'Rosa Vega cooperating with investigators. Angela Foster believed to be operating offshore. Investigation ongoing.'),
+(4, 2, '2022-05-18', 'Incident', 'Amy Torres assaulted outside Harbor Bar at 23:15. Suspect Danny Marsh identified on camera footage.'),
+(4, 2, '2022-08-03', 'Closing', 'Danny Marsh charged with aggravated assault. Pleaded guilty. Case closed.'),
+(5, 5, '2022-09-01', 'Incident', 'Lily Johnson, age 7, reported missing from Northpark playground at approximately 16:00.'),
+(5, 5, '2022-09-18', 'Closing', 'Lily Johnson recovered safely. Tom Briggs arrested. Case closed.'),
+(6, 1, '2023-01-22', 'Incident', 'Smash-and-grab robbery at Goldstein Jewelers at 20:45. Three suspects fled in a dark SUV.'),
+(6, 1, '2023-03-10', 'Progress', 'Jake Holloway identified as primary suspect. Still at large. Investigation ongoing.'),
+(7, 1, '2023-04-10', 'Incident', 'Unidentified female victim found near Riverside Bridge. No ID on body. Cause of death unknown pending autopsy.'),
+(7, 6, '2023-04-12', 'Forensic', 'Autopsy confirms cause of death as strangulation. DNA samples submitted. No matches found in database yet.'),
+(8, 3, '2023-06-05', 'Incident', 'Multiple reports of phishing emails targeting seniors. Estimated total loss exceeds $500,000 across 40 victims.'),
+(8, 3, '2024-01-20', 'Progress', 'Angela Foster linked to phishing network. Chen Wei identified as technical operator. Both remain at large.'),
+(9, 2, '2024-02-14', 'Incident', 'Chris Adams stabbed outside Vertigo nightclub at 02:10. Suspect fled on foot. Knife recovered nearby.'),
+(10, 5, '2024-05-01', 'Progress', 'Cold case from 2019 reopened following new DNA technology. Sample resubmitted. Marcus Stone flagged as person of interest.');
