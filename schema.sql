@@ -16,6 +16,18 @@ CREATE TABLE suspects (
     "dob" DATE NOT NULL,
     "gender" TEXT NOT NULL CHECK("gender" IN ('Male', 'Female', 'Other')),
     "nationality" TEXT NOT NULL,
+    "contact_info" TEXT,
     "status" TEXT NOT NULL DEFAULT 'At Large' CHECK("status" IN ('At Large', 'Arrested', 'Convicted', 'Released')),
     "criminal_record" TEXT
+);
+
+CREATE TABLE victims (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
+    "dob" DATE NOT NULL,
+    "gender" TEXT NOT NULL CHECK("gender" IN ('Male', 'Female', 'Other')),
+    "nationality" TEXT NOT NULL,
+    "contact_info" TEXT,
+    "statement" TEXT
 );
