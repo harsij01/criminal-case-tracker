@@ -8,3 +8,14 @@ CREATE TABLE cases (
     "closed_date" DATE,
     "description" TEXT
 );
+
+CREATE TABLE suspects (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
+    "dob" DATE NOT NULL,
+    "gender" TEXT NOT NULL CHECK("gender" IN ('Male', 'Female', 'Other')),
+    "nationality" TEXT NOT NULL,
+    "status" TEXT NOT NULL DEFAULT 'At Large' CHECK("status" IN ('At Large', 'Arrested', 'Convicted', 'Released')),
+    "criminal_record" TEXT
+);
