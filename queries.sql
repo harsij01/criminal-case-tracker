@@ -51,3 +51,8 @@ FROM "case_suspects"
 JOIN "cases" ON "cases"."id" = "case_suspects"."case_id"
 JOIN "suspects" ON "suspects"."id" = "case_suspects"."suspect_id"
 WHERE "suspects"."first_name" = 'Jake' AND "suspects"."last_name" = 'Holloway';
+
+-- Count the number of cases by status
+SELECT "title", COUNT("title")
+FROM "cases"
+GROUP BY "status";
