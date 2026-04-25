@@ -56,3 +56,13 @@ CREATE TABLE evidence (
     FOREIGN KEY("case_id") REFERENCES "cases"("id") ON DELETE CASCADE,
     FOREIGN KEY("collected_by") REFERENCES "investigators"("id") ON DELETE CASCADE
 );
+
+CREATE TABLE case_suspects (
+    "case_id" INTEGER NOT NULL,
+    "suspect_id" INTEGER NOT NULL,
+    "role" TEXT NOT NULL CHECK("role" IN ('Primary Suspect', 'Accomplice', 'Person of Interest')),
+    "date_linked" DATE NOT NULL,
+    PRIMARY KEY("case_id", "suspect_id"),
+    FOREIGN KEY("case_id") REFERENCES "cases"("id"),
+    FOREIGN KEY("suspect_id") REFERENCES "suspects"("id")
+);
