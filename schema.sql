@@ -121,6 +121,18 @@ INSERT INTO suspects (first_name, last_name, dob, gender, nationality, contact_i
 ('Jake', 'Holloway', '1987-11-02', 'Male', 'American', NULL, 'At Large', 'Robbery, 2016'),
 ('Diana', 'Cross', '1993-01-17', 'Female', 'Canadian', '555-0110', 'Released', 'None');
 
+INSERT INTO victims (first_name, last_name, dob, gender, nationality, contact_info, statement) VALUES
+('Robert', 'Lane', '1965-05-20', 'Male', 'American', '555-0201', 'I was behind the counter when three masked men entered and demanded cash.'),
+('Linda', 'Park', '1978-11-13', 'Female', 'Korean', '555-0202', 'I heard shouting and then a gunshot from the next room.'),
+('George', 'Simmons', '1952-08-07', 'Male', 'American', '555-0203', 'They contacted me pretending to be from the IRS and I transferred the funds.'),
+('Amy', 'Torres', '1989-03-29', 'Female', 'American', '555-0204', 'He attacked me from behind near the bar entrance.'),
+('Lily', 'Johnson', '2015-06-14', 'Female', 'American', '555-0205', 'Victim is a minor. Statement taken with guardian present.'),
+('Paul', 'Nguyen', '1971-09-18', 'Male', 'Vietnamese', '555-0206', 'The display case was smashed and three men grabbed the trays and ran.'),
+('Jane', 'Doe', '1990-01-01', 'Female', 'Unknown', NULL, NULL),
+('Harold', 'Green', '1948-12-05', 'Male', 'American', '555-0208', 'I received an email saying my account was compromised. I lost $15,000.'),
+('Chris', 'Adams', '1996-07-22', 'Male', 'American', '555-0209', 'Someone came up and stabbed me. I did not see their face clearly.'),
+('Mary', 'Collins', '1955-04-10', 'Female', 'American', '555-0210', 'My husband never came home that night. That is all I know.');
+
 INSERT INTO investigators (badge_number, first_name, last_name, dob, gender, rank, department, contact_info) VALUES
 ('B001', 'James', 'Carter', '1975-03-12', 'Male', 'Detective', 'Homicide', 'james.carter@police.gov'),
 ('B002', 'Sarah', 'Mitchell', '1980-07-24', 'Female', 'Sergeant', 'Narcotics', 'sarah.mitchell@police.gov'),
