@@ -175,3 +175,16 @@ INSERT INTO case_suspects ("case_id", "suspect_id", "role", "date_linked") VALUE
 (9, 8, 'Person of Interest', '2024-02-16'),
 (10, 7, 'Person of Interest', '2024-05-10');
 
+INSERT INTO case_victims (case_id, victim_id, harm_type) VALUES
+(1, 1, 'Physical'),
+(2, 2, 'Death'),
+(3, 3, 'Financial'),
+(3, 8, 'Financial'),
+(4, 4, 'Physical'),
+(5, 5, 'Emotional'),
+(6, 6, 'Financial'),
+(7, 7, 'Death'),
+(8, 8, 'Financial'),
+(8, 3, 'Financial'),
+(9, 9, 'Physical'),
+(10, 10, 'Emotional');
