@@ -31,3 +31,15 @@ CREATE TABLE victims (
     "contact_info" TEXT,
     "statement" TEXT
 );
+
+CREATE TABLE investigators (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "badge_number" TEXT NOT NULL UNIQUE,
+    "first_name" TEXT NOT NULL,
+    "last_name" TEXT NOT NULL,
+    "dob" DATE NOT NULL,
+    "gender" TEXT NOT NULL CHECK("gender" IN ('Male', 'Female', 'Other')),
+    "rank" TEXT NOT NULL CHECK("rank" IN ('Detective', 'Sergeant', 'Lieutenant', 'Captain', 'Officer')),
+    "department" TEXT,
+    "contact_info" TEXT
+);
