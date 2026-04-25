@@ -23,3 +23,17 @@ WHERE "case_id" = 4;
 SELECT "first_name", "last_name", "criminal_record"
 FROM "suspects"
 WHERE "criminal_record" IS NOT NULL; 
+
+-- Get all cases with their lead investigator's full name
+SELECT "cases"."title", "investigators"."first_name", "investigators"."last_name"
+FROM "case_investigators"
+JOIN "cases" ON "cases"."id" = "case_investigators"."case_id"
+JOIN "investigators" ON "investigators"."id" = "case_investigators"."investigator_id"
+WHERE "case_investigators"."role" = 'Lead Investigator';
+
+-- Get all suspects linked to Riverside Murder along with their role
+SELECT "suspects"."first_name", "suspects"."last_name", "case_suspects"."role"
+FROM "case_suspects"
+JOIN "cases" ON "cases"."id" = "case_suspects"."case_id"
+JOIN "suspects" ON "suspects"."id" = "case_suspects"."suspect_id"
+WHERE "cases"."title" = 'Riverside Murder';
