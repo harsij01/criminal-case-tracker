@@ -109,6 +109,18 @@ INSERT INTO cases (case_number, title, type, status, opened_date, closed_date, d
 ('CR-2024-001', 'Midtown Stabbing', 'Assault', 'Open', '2024-02-14', NULL, 'Stabbing incident outside Midtown nightclub. Suspect fled the scene.'),
 ('CR-2024-002', 'Cold Case Revisit - 2019 Homicide', 'Murder', 'Cold', '2024-05-01', NULL, 'Reopened cold case from 2019. New DNA evidence submitted for analysis.');
 
+INSERT INTO suspects (first_name, last_name, dob, gender, nationality, contact_info, status, criminal_record) VALUES
+('Victor', 'Hale', '1988-04-11', 'Male', 'American', '555-0101', 'Convicted', 'Prior robbery, 2018'),
+('Danny', 'Marsh', '1992-08-23', 'Male', 'American', '555-0102', 'Convicted', 'Assault, 2019'),
+('Rosa', 'Vega', '1985-12-30', 'Female', 'Mexican', '555-0103', 'Released', 'Fraud, 2017'),
+('Tom', 'Briggs', '1979-02-14', 'Male', 'British', NULL, 'Arrested', 'None'),
+('Angela', 'Foster', '1990-06-05', 'Female', 'American', '555-0105', 'At Large', 'Fraud, 2020'),
+('Chen', 'Wei', '1983-10-19', 'Male', 'Chinese', NULL, 'At Large', 'None'),
+('Marcus', 'Stone', '1975-07-07', 'Male', 'American', '555-0107', 'Convicted', 'Murder, 2010; Assault, 2015'),
+('Nina', 'Petrov', '1995-03-25', 'Female', 'Russian', '555-0108', 'Arrested', 'None'),
+('Jake', 'Holloway', '1987-11-02', 'Male', 'American', NULL, 'At Large', 'Robbery, 2016'),
+('Diana', 'Cross', '1993-01-17', 'Female', 'Canadian', '555-0110', 'Released', 'None');
+
 INSERT INTO investigators (badge_number, first_name, last_name, dob, gender, rank, department, contact_info) VALUES
 ('B001', 'James', 'Carter', '1975-03-12', 'Male', 'Detective', 'Homicide', 'james.carter@police.gov'),
 ('B002', 'Sarah', 'Mitchell', '1980-07-24', 'Female', 'Sergeant', 'Narcotics', 'sarah.mitchell@police.gov'),
