@@ -75,3 +75,13 @@ CREATE TABLE case_victims (
     FOREIGN KEY("case_id") REFERENCES "cases"("id"),
     FOREIGN KEY("victim_id") REFERENCES "victims"("id")
 );
+
+CREATE TABLE case_investigators (
+    "case_id" INTEGER NOT NULL,
+    "investigator_id" INTEGER NOT NULL,
+    "role" TEXT NOT NULL CHECK("role" IN ('Lead Investigator', 'Support', 'Forensics')),
+    "assigned_date" DATE NOT NULL,
+    PRIMARY KEY("case_id", "investigator_id"),
+    FOREIGN KEY("case_id") REFERENCES "cases"("id"),
+    FOREIGN KEY("investigator_id") REFERENCES "investigators"("id")
+);
