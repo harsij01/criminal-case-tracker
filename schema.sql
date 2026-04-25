@@ -108,3 +108,12 @@ INSERT INTO cases (case_number, title, type, status, opened_date, closed_date, d
 ('CR-2023-003', 'Phishing Fraud Network', 'Fraud', 'Under Investigation', '2023-06-05', NULL, 'Organized phishing operation targeting elderly victims across the city.'),
 ('CR-2024-001', 'Midtown Stabbing', 'Assault', 'Open', '2024-02-14', NULL, 'Stabbing incident outside Midtown nightclub. Suspect fled the scene.'),
 ('CR-2024-002', 'Cold Case Revisit - 2019 Homicide', 'Murder', 'Cold', '2024-05-01', NULL, 'Reopened cold case from 2019. New DNA evidence submitted for analysis.');
+
+INSERT INTO investigators (badge_number, first_name, last_name, dob, gender, rank, department, contact_info) VALUES
+('B001', 'James', 'Carter', '1975-03-12', 'Male', 'Detective', 'Homicide', 'james.carter@police.gov'),
+('B002', 'Sarah', 'Mitchell', '1980-07-24', 'Female', 'Sergeant', 'Narcotics', 'sarah.mitchell@police.gov'),
+('B003', 'David', 'Nguyen', '1983-11-05', 'Male', 'Lieutenant', 'Cyber Crime', 'david.nguyen@police.gov'),
+('B004', 'Emily', 'Brooks', '1990-01-18', 'Female', 'Officer', 'Homicide', 'emily.brooks@police.gov'),
+('B005', 'Marcus', 'Reid', '1978-09-30', 'Male', 'Captain', 'Major Crimes', 'marcus.reid@police.gov'),
+('B006', 'Laura', 'Chen', '1985-06-15', 'Female', 'Detective', 'Forensics', 'laura.chen@police.gov'),
+('B007', 'Kevin', 'Walsh', '1992-04-22', 'Male', 'Officer', 'Patrol', 'kevin.walsh@police.gov');
