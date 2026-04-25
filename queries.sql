@@ -37,3 +37,17 @@ FROM "case_suspects"
 JOIN "cases" ON "cases"."id" = "case_suspects"."case_id"
 JOIN "suspects" ON "suspects"."id" = "case_suspects"."suspect_id"
 WHERE "cases"."title" = 'Riverside Murder';
+
+-- Get all evidence for Harbor Street Assault case along with the name of the investigator who collected it
+SELECT "evidence"."type", "evidence"."collected_date", "evidence"."location_found", "investigators"."first_name", "investigators"."last_name"
+FROM "evidence"
+JOIN "cases" ON "cases"."id" = "evidence"."case_id" 
+JOIN "investigators" ON "investigators"."id" = "evidence"."collected_by"
+WHERE "cases"."title" = 'Harbor Street Assault';
+
+-- Get all cases Jake Holloway (suspect) is linked to
+SELECT "cases"."title"
+FROM "case_suspects"
+JOIN "cases" ON "cases"."id" = "case_suspects"."case_id"
+JOIN "suspects" ON "suspects"."id" = "case_suspects"."suspect_id"
+WHERE "suspects"."first_name" = 'Jake' AND "suspects"."last_name" = 'Holloway';
