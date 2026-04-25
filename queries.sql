@@ -53,6 +53,20 @@ JOIN "suspects" ON "suspects"."id" = "case_suspects"."suspect_id"
 WHERE "suspects"."first_name" = 'Jake' AND "suspects"."last_name" = 'Holloway';
 
 -- Count the number of cases by status
-SELECT "title", COUNT("title")
+SELECT "status", COUNT(*) AS 'total'
 FROM "cases"
 GROUP BY "status";
+
+-- Count how many cases each investigator is assigned to
+SELECT "investigators"."first_name", "investigators"."last_name", COUNT(*) AS 'No of Cases'
+FROM "case_investigators"
+JOIN "investigators" ON "investigators"."id" = "case_investigators"."investigator_id"
+GROUP BY "case_investigators"."investigator_id"
+ORDER BY "No of Cases";
+
+-- Count how many evidence items each case has
+SELECT "cases"."title", COUNT(*) AS 'No of Evidence Items'
+FROM "evidence"
+JOIN "cases" ON "cases"."id" = "evidence"."case_id"
+GROUP BY "evidence"."case_id"
+ORDER BY "No of Evidence Items" DESC;
