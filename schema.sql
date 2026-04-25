@@ -188,3 +188,25 @@ INSERT INTO case_victims (case_id, victim_id, harm_type) VALUES
 (8, 3, 'Financial'),
 (9, 9, 'Physical'),
 (10, 10, 'Emotional');
+
+INSERT INTO case_investigators (case_id, investigator_id, role, assigned_date) VALUES
+(1, 1, 'Lead Investigator', '2021-03-15'),
+(1, 4, 'Support', '2021-03-15'),
+(2, 1, 'Lead Investigator', '2021-07-02'),
+(2, 6, 'Forensics', '2021-07-02'),
+(3, 3, 'Lead Investigator', '2022-02-10'),
+(3, 2, 'Support', '2022-02-12'),
+(4, 2, 'Lead Investigator', '2022-05-18'),
+(4, 7, 'Support', '2022-05-18'),
+(5, 5, 'Lead Investigator', '2022-09-01'),
+(5, 3, 'Support', '2022-09-02'),
+(6, 1, 'Lead Investigator', '2023-01-22'),
+(6, 7, 'Support', '2023-01-22'),
+(7, 1, 'Lead Investigator', '2023-04-10'),
+(7, 6, 'Forensics', '2023-04-10'),
+(8, 3, 'Lead Investigator', '2023-06-05'),
+(8, 2, 'Support', '2023-06-06'),
+(9, 2, 'Lead Investigator', '2024-02-14'),
+(9, 7, 'Support', '2024-02-14'),
+(10, 5, 'Lead Investigator', '2024-05-01'),
+(10, 6, 'Forensics', '2024-05-03');
