@@ -158,3 +158,20 @@ INSERT INTO evidence ("case_id", "type", "description", "collected_date", "colle
 (8, 'Digital', 'Phishing email server logs', '2023-06-10', 3, 'ISP Records', 'Submitted to Lab'),
 (9, 'Weapon', 'Knife recovered near dumpster', '2024-02-14', 7, 'Midtown nightclub alley', 'Submitted to Lab'),
 (10, 'DNA', 'DNA sample from 2019 evidence resubmitted', '2024-05-05', 6, 'Evidence storage vault', 'Submitted to Lab');
+
+INSERT INTO case_suspects ("case_id", "suspect_id", "role", "date_linked") VALUES
+(1, 1, 'Primary Suspect', '2021-03-16'),
+(1, 2, 'Accomplice', '2021-03-18'),
+(1, 9, 'Accomplice', '2021-03-20'),
+(2, 7, 'Primary Suspect', '2021-07-05'),
+(3, 3, 'Primary Suspect', '2022-02-20'),
+(3, 5, 'Accomplice', '2022-03-01'),
+(4, 2, 'Primary Suspect', '2022-05-19'),
+(5, 4, 'Primary Suspect', '2022-09-03'),
+(6, 1, 'Person of Interest', '2023-01-25'),
+(6, 9, 'Primary Suspect', '2023-02-01'),
+(8, 5, 'Primary Suspect', '2023-06-15'),
+(8, 6, 'Accomplice', '2023-06-20'),
+(9, 8, 'Person of Interest', '2024-02-16'),
+(10, 7, 'Person of Interest', '2024-05-10');
+
