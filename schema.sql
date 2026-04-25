@@ -85,3 +85,14 @@ CREATE TABLE case_investigators (
     FOREIGN KEY("case_id") REFERENCES "cases"("id"),
     FOREIGN KEY("investigator_id") REFERENCES "investigators"("id")
 );
+
+CREATE TABLE reports (
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "case_id" INTEGER NOT NULL,
+    "investigator_id" INTEGER NOT NULL,
+    "report_date" DATE NOT NULL,
+    "type" TEXT NOT NULL CHECK("type" IN ('Incident', 'Progress', 'Closing', 'Forensic')),
+    "content" TEXT,
+    FOREIGN KEY("case_id") REFERENCES "cases"("id") ON DELETE CASCADE,
+    FOREIGN KEY("investigator_id") REFERENCES "investigators"("id") ON DELETE CASCADE
+);
