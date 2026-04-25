@@ -141,3 +141,20 @@ INSERT INTO investigators ("badge_number", "first_name", "last_name", "dob", "ge
 ('B005', 'Marcus', 'Reid', '1978-09-30', 'Male', 'Captain', 'Major Crimes', 'marcus.reid@police.gov'),
 ('B006', 'Laura', 'Chen', '1985-06-15', 'Female', 'Detective', 'Forensics', 'laura.chen@police.gov'),
 ('B007', 'Kevin', 'Walsh', '1992-04-22', 'Male', 'Officer', 'Patrol', 'kevin.walsh@police.gov');
+
+INSERT INTO evidence ("case_id", "type", "description", "collected_date", "collected_by", "location_found", "status") VALUES
+(1, 'Weapon', 'Loaded handgun found in suspect vehicle', '2021-03-15', 1, 'Suspect vehicle, Elm Street', 'In Storage'),
+(1, 'Digital', 'Bank CCTV footage showing suspects', '2021-03-16', 4, 'First National Bank', 'Submitted to Lab'),
+(2, 'DNA', 'Blood sample from crime scene', '2021-07-02', 6, 'Westside Apartment 4B', 'Submitted to Lab'),
+(2, 'Document', 'Threatening letters found in victim apartment', '2021-07-03', 1, 'Westside Apartment 4B', 'In Storage'),
+(3, 'Document', 'Falsified financial records', '2022-02-15', 3, 'Corporate HQ, Floor 12', 'Submitted to Lab'),
+(3, 'Digital', 'Encrypted hard drive seized from office', '2022-02-15', 3, 'Corporate HQ, Floor 12', 'Submitted to Lab'),
+(4, 'Weapon', 'Broken glass bottle used in assault', '2022-05-18', 7, 'Harbor Street sidewalk', 'In Storage'),
+(4, 'Digital', 'Street camera footage of altercation', '2022-05-19', 4, 'City Traffic Camera #47', 'Submitted to Lab'),
+(5, 'Digital', 'Ransom note photo sent via phone', '2022-09-02', 3, 'Victim family residence', 'In Storage'),
+(6, 'Physical', 'Broken display case glass shards', '2023-01-22', 7, 'Goldstein Jewelers', 'In Storage'),
+(6, 'Digital', 'Store CCTV footage', '2023-01-22', 4, 'Goldstein Jewelers', 'Submitted to Lab'),
+(7, 'DNA', 'Unidentified blood sample from scene', '2023-04-10', 6, 'Riverside Bridge embankment', 'Submitted to Lab'),
+(8, 'Digital', 'Phishing email server logs', '2023-06-10', 3, 'ISP Records', 'Submitted to Lab'),
+(9, 'Weapon', 'Knife recovered near dumpster', '2024-02-14', 7, 'Midtown nightclub alley', 'Submitted to Lab'),
+(10, 'DNA', 'DNA sample from 2019 evidence resubmitted', '2024-05-05', 6, 'Evidence storage vault', 'Submitted to Lab');
