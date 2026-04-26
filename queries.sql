@@ -85,7 +85,15 @@ WHERE "id" IN (
 
 
 -- Get the investigator who has been assigned to the most cases
-
+SELECT "investigators"."first_name", "investigators"."last_name"
+FROM "investigators"
+WHERE "id" IN (
+    SELECT "investigator_id"
+    FROM "case_investigators"
+    GROUP BY "investigator_id"
+    ORDER BY COUNT(*) DESC
+    LIMIT 1
+);
 
 -- Get all cases that have at least one DNA evidence item
 SELECT "title"
