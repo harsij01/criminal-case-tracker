@@ -96,3 +96,13 @@ CREATE TABLE reports (
     FOREIGN KEY("case_id") REFERENCES "cases"("id") ON DELETE CASCADE,
     FOREIGN KEY("investigator_id") REFERENCES "investigators"("id") ON DELETE CASCADE
 );
+
+-- All open cases with their lead investigator and suspect count
+CREATE VIEW "open_cases_summary" AS
+SELECT "cases"."title", "cases"."opened_date",
+    "investigators"."first_name", "investigators"."last_name", 
+    (SELECT COUNT(*) FROM "case_suspects" WHERE "case_id" = "cases"."id") AS 'Suspect Count'
+FROM "case_investigators"
+JOIN "cases" ON "cases"."id" = "case_investigators"."case_id"
+JOIN "investigators" ON "investigators"."id" = "case_investigators"."investigator_id"
+WHERE "cases"."status" = 'Open' AND "case_investigators"."role" = 'Lead Investigator';
