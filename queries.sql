@@ -91,7 +91,7 @@ WHERE "id" IN (
 
 
 -- Get all cases opened in 2023
-SELECT "title"
+SELECT "title", "opened_date"
 FROM "cases"
 WHERE "opened_date" LIKE '2023-%';
 
@@ -108,3 +108,4 @@ WHERE "opened_date" LIKE '2023-%';
 
 
 -- Get all cases where the harm type is Death
+
