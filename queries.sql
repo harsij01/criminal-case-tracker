@@ -105,7 +105,13 @@ WHERE "opened_date" LIKE '2023-%';
 
 
 -- Get all victims along with the case they are linked to and the harm type
-
+SELECT "victims"."first_name", "victims"."last_name", "cases"."title", "case_victims"."harm_type"
+FROM "case_victims"
+JOIN "victims" ON "victims"."id" = "case_victims"."victim_id"
+JOIN "cases" ON "cases"."id" = "case_victims"."case_id";
 
 -- Get all cases where the harm type is Death
-
+SELECT "cases"."title"
+FROM "case_victims"
+JOIN "cases" ON "cases"."id" = "case_victims"."case_id"
+WHERE "case_victims"."harm_type" = 'Death';
