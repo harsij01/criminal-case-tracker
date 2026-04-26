@@ -62,7 +62,7 @@ SELECT "investigators"."first_name", "investigators"."last_name", COUNT(*) AS 'N
 FROM "case_investigators"
 JOIN "investigators" ON "investigators"."id" = "case_investigators"."investigator_id"
 GROUP BY "case_investigators"."investigator_id"
-ORDER BY "No of Cases";
+ORDER BY "No of Cases" DESC;
 
 -- Count how many evidence items each case has
 SELECT "cases"."title", COUNT(*) AS 'No of Evidence Items'
@@ -82,7 +82,12 @@ WHERE "id" IN (
 );
 
 -- Get all cases that have no suspects linked yet
-
+SELECT "title"
+FROM "cases"
+WHERE "id" NOT IN (
+    SELECT DISTINCT "case_id"
+    FROM "case_suspects"
+);
 
 -- Get the investigator who has been assigned to the most cases
 SELECT "investigators"."first_name", "investigators"."last_name"
