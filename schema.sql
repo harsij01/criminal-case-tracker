@@ -98,6 +98,12 @@ CREATE TABLE reports (
 );
 
 -- All cases where harm type is Death
+CREATE VIEW "death_cases" AS 
+SELECT "cases"."title", "victims"."first_name", "victims"."last_name"
+FROM "case_victims"
+JOIN "cases" ON "cases"."id" = "case_victims"."case_id"
+JOIN "victims" ON "victims"."id" = "case_victims"."victim_id"
+WHERE "case_victims"."harm_type" = 'Death';
 
 -- Full evidence trail with case title and collector name
 CREATE VIEW "evidence_log" AS
