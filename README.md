@@ -165,3 +165,18 @@ active investigations.
 including the collector's name and case title. Useful for auditing.
 * `death_cases` — shows all cases where the harm type is Death,
 along with the victim's name. Useful for prioritizing serious cases.
+
+## Limitations
+
+* **No court or legal tracking** — the database does not track
+court hearings, verdicts, or sentencing beyond case status
+* **Single nationality per person** — suspects, victims, and
+investigators can only have one nationality listed
+* **No file attachments** — the database cannot store actual
+evidence files, images, or documents — only descriptions
+* **No audit trail** — there is no tracking of who made changes
+to records or when they were last updated
+* **Static roles** — an investigator's role on a case cannot
+change over time once assigned
+* **No geolocation** — crime locations are stored as text only,
+with no support for coordinates or mapping
