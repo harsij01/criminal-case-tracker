@@ -1,16 +1,48 @@
 # Design Document
 
-By YOUR NAME HERE
+By Harsini Jegatheesan
 
 Video overview: <URL HERE>
 
 ## Scope
 
-In this section you should answer the following questions:
+### Purpose
+The purpose of this database is to manage and track criminal cases,
+including the suspects, victims, investigators, evidence, and reports
+associated with each case. It is designed to simulate a real-world
+law enforcement case management system.
 
-* What is the purpose of your database?
-* Which people, places, things, etc. are you including in the scope of your database?
-* Which people, places, things, etc. are *outside* the scope of your database?
+### In Scope
+* **Cases** — criminal cases with their type, status, and dates
+* **Suspects** — individuals linked to cases with their personal
+info and criminal history
+* **Victims** — individuals harmed in cases with their statements
+* **Investigators** — law enforcement officers assigned to cases
+* **Evidence** — physical, digital, and forensic items collected
+* **Reports** — incident, progress, forensic, and closing reports
+
+### Out of Scope
+* Court proceedings and verdicts beyond case status
+* Financial transactions or bail information
+* Witness protection details
+* Real-time GPS tracking of suspects
+* Inter-agency data sharing
+
+## Functional Requirements
+
+### What a user can do
+* Add, view, and manage criminal cases and their current status
+* Link suspects, victims, and investigators to specific cases
+* Track evidence collected for each case and its current status
+* File and retrieve reports for any case
+* Query repeat offenders, unsolved cases, and case summaries
+* View open cases with their lead investigator and suspect count
+
+### Beyond scope
+* Users cannot manage court hearings or sentencing
+* Users cannot process payments or bail bonds
+* Users cannot track real-time locations of suspects
+* Users cannot manage classified or confidential clearance levels
 
 ## Functional Requirements
 
