@@ -121,6 +121,9 @@ Incident, Progress, Closing, or Forensic
 * `content` — TEXT, nullable as a report may be in progress
 
 ### Relationships
+
+![ER Diagram](diagram.png)
+
 ```
 cases ──< case_suspects >── suspects
 cases ──< case_victims  >── victims
