@@ -107,7 +107,7 @@ WHERE "id" IN (
 -- Get all cases opened in 2023
 SELECT "title", "opened_date"
 FROM "cases"
-WHERE "opened_date" LIKE '2023-%';
+WHERE STRFTIME('%Y', "opened_date") = '2023';
 
 -- Get all cases that have been open for more than a year with no closing date
 
