@@ -121,11 +121,13 @@ Incident, Progress, Closing, or Forensic
 * `content` — TEXT, nullable as a report may be in progress
 
 ### Relationships
+```
 cases ──< case_suspects >── suspects
 cases ──< case_victims  >── victims
 cases ──< case_investigators >── investigators
 cases ──< evidence
 cases ──< reports
+```
 
 * A **case** can have many **suspects**, and a **suspect** can be
 linked to many **cases** (many-to-many via `case_suspects`)
