@@ -70,3 +70,41 @@ FROM "evidence"
 JOIN "cases" ON "cases"."id" = "evidence"."case_id"
 GROUP BY "evidence"."case_id"
 ORDER BY "No of Evidence Items" DESC;
+
+-- Get all suspects linked to more than one case
+SELECT "first_name", "last_name"
+FROM "suspects"
+WHERE "id" IN (
+    SELECT "suspect_id"
+    FROM "case_suspects"
+    GROUP BY "suspect_id"
+    HAVING COUNT(*) > 1
+);
+
+-- Get all cases that have no suspects linked yet
+
+
+-- Get the investigator who has been assigned to the most cases
+
+
+-- Get all cases that have at least one DNA evidence item
+
+
+-- Get all cases opened in 2023
+SELECT "title"
+FROM "cases"
+WHERE "opened_date" LIKE '2023-%';
+
+-- Get all cases that have been open for more than a year with no closing date
+
+
+-- Get all cases with their suspect count and evidence count
+
+
+-- Get all investigators along with the number of reports they have filed
+
+
+-- Get all victims along with the case they are linked to and the harm type
+
+
+-- Get all cases where the harm type is Death
