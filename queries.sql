@@ -116,7 +116,10 @@ WHERE "opened_date" LIKE '2023-%';
 
 
 -- Get all investigators along with the number of reports they have filed
-
+SELECT "investigators"."first_name", "investigators"."last_name", COUNT(*) AS 'No of Reports'
+FROM "reports"
+GROUP BY "investigator_id"
+JOIN "investigators" ON "investigators"."id" = "reports"."investigator_id";
 
 -- Get all victims along with the case they are linked to and the harm type
 SELECT "victims"."first_name", "victims"."last_name", "cases"."title", "case_victims"."harm_type"
