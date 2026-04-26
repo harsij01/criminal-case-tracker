@@ -17,7 +17,7 @@ JOIN "investigators" ON "investigators"."id" = "evidence"."collected_by";
 
 -- All open cases with their lead investigator and suspect count
 CREATE VIEW "open_cases_summary" AS
-SELECT "cases"."title", "cases"."opened_date",
+SELECT "cases"."case_number", "cases"."title", "cases"."opened_date",
     "investigators"."first_name", "investigators"."last_name", 
     (SELECT COUNT(*) FROM "case_suspects" WHERE "case_id" = "cases"."id") AS 'Suspect Count'
 FROM "case_investigators"

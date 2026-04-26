@@ -11,3 +11,7 @@ CREATE INDEX "idx_evidence_type" ON "evidence"("type");
 CREATE INDEX "idx_reports_case_id" ON "reports"("case_id");
 
 CREATE INDEX "idx_suspects_last_name" ON "suspects"("last_name");
+
+CREATE INDEX "idx_reports_investigator_id" ON "reports"("investigator_id");
+
+CREATE INDEX "idx_cases_opened_date" ON "cases"("opened_date");

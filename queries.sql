@@ -121,7 +121,8 @@ FROM "cases";
 SELECT "investigators"."first_name", "investigators"."last_name", COUNT(*) AS 'No of Reports'
 FROM "reports"
 JOIN "investigators" ON "investigators"."id" = "reports"."investigator_id"
-GROUP BY "investigator_id";
+GROUP BY "investigator_id"
+ORDER BY "No of Reports" DESC;;
 
 -- Get all victims along with the case they are linked to and the harm type
 SELECT "victims"."first_name", "victims"."last_name", "cases"."title", "case_victims"."harm_type"
