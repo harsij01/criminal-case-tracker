@@ -9,16 +9,6 @@ SELECT "first_name", "last_name"
 FROM "suspects"
 WHERE "status" = 'At Large';
 
--- Get all evidence collected for case with an id of 4
-SELECT "type", "description", "collected_date", "location_found"
-FROM "evidence"
-WHERE "case_id" = 4;
-
--- Get all reports filed for case with an id of 4
-SELECT "type", "content", "report_date"
-FROM "reports"
-WHERE "case_id" = 4;
-
 -- Get all suspects with a prior criminal record
 SELECT "first_name", "last_name", "criminal_record"
 FROM "suspects"
@@ -115,10 +105,17 @@ FROM "cases"
 WHERE STRFTIME('%Y', "opened_date") = '2023';
 
 -- Get all cases that have been open for more than a year with no closing date
-
+SELECT "title", "opened_date", "status"
+FROM "cases"
+WHERE "closed_date" IS NULL AND "status" != 'Closed'
+AND JULIANDAY(DATE('now')) - JULIANDAY("opened_date") > 365;
 
 -- Get all cases with their suspect count and evidence count
-
+SELECT 
+    "title",
+    (SELECT COUNT(*) FROM "case_suspects" WHERE "case_id" = "cases"."id") AS 'Suspect Count',
+    (SELECT COUNT(*) FROM "evidence" WHERE "case_id" = "cases"."id") AS 'Evidence Count'
+FROM "cases";
 
 -- Get all investigators along with the number of reports they have filed
 SELECT "investigators"."first_name", "investigators"."last_name", COUNT(*) AS 'No of Reports'
