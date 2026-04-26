@@ -138,13 +138,30 @@ can be assigned to many **cases** (many-to-many via `case_investigators`)
 
 ## Optimizations
 
-In this section you should answer the following questions:
+### Indexes
+The following indexes were created to speed up frequently used queries:
 
-* Which optimizations (e.g., indexes, views) did you create? Why?
+* `idx_cases_status` — on `cases(status)`, since many queries filter
+by case status (e.g. finding all open cases)
+* `idx_cases_type` — on `cases(type)`, for filtering by crime type
+* `idx_suspects_status` — on `suspects(status)`, for finding suspects
+at large or arrested
+* `idx_evidence_case_id` — on `evidence(case_id)`, since evidence is
+frequently joined to cases
+* `idx_evidence_type` — on `evidence(type)`, for filtering by evidence
+type such as DNA
+* `idx_reports_case_id` — on `reports(case_id)`, since reports are
+frequently retrieved by case
+* `idx_suspects_last_name` — on `suspects(last_name)`, for name-based
+searches
 
-## Limitations
+### Views
+Three views were created for convenience:
 
-In this section you should answer the following questions:
-
-* What are the limitations of your design?
-* What might your database not be able to represent very well?
+* `open_cases_summary` — shows all open cases with their lead
+investigator and suspect count. Useful for a quick overview of
+active investigations.
+* `evidence_log` — shows the full evidence trail for all cases
+including the collector's name and case title. Useful for auditing.
+* `death_cases` — shows all cases where the harm type is Death,
+along with the victim's name. Useful for prioritizing serious cases.
