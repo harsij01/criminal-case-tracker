@@ -88,7 +88,13 @@ WHERE "id" IN (
 
 
 -- Get all cases that have at least one DNA evidence item
-
+SELECT "title"
+FROM "cases"
+WHERE "id" IN (
+    SELECT DISTINCT "case_id"
+    FROM "evidence"
+    WHERE "type" = 'DNA'
+);
 
 -- Get all cases opened in 2023
 SELECT "title", "opened_date"
