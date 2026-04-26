@@ -97,6 +97,17 @@ CREATE TABLE reports (
     FOREIGN KEY("investigator_id") REFERENCES "investigators"("id") ON DELETE CASCADE
 );
 
+-- All cases where harm type is Death
+
+-- Full evidence trail with case title and collector name
+CREATE VIEW "evidence_log" AS
+SELECT "evidence"."type", "evidence"."description", "evidence"."location_found", "evidence"."collected_date", "evidence"."status", 
+    "cases"."title", 
+    "investigators"."first_name", "investigators"."last_name"
+FROM "evidence"
+JOIN "cases" ON "cases"."id" = "evidence"."case_id"
+JOIN "investigators" ON "investigators"."id" = "evidence"."collected_by";
+
 -- All open cases with their lead investigator and suspect count
 CREATE VIEW "open_cases_summary" AS
 SELECT "cases"."title", "cases"."opened_date",
