@@ -21,13 +21,6 @@ info and criminal history
 * **Evidence** — physical, digital, and forensic items collected
 * **Reports** — incident, progress, forensic, and closing reports
 
-### Out of Scope
-* Court proceedings and verdicts beyond case status
-* Financial transactions or bail information
-* Witness protection details
-* Real-time GPS tracking of suspects
-* Inter-agency data sharing
-
 ## Functional Requirements
 
 ### What a user can do
@@ -38,33 +31,110 @@ info and criminal history
 * Query repeat offenders, unsolved cases, and case summaries
 * View open cases with their lead investigator and suspect count
 
-### Beyond scope
-* Users cannot manage court hearings or sentencing
-* Users cannot process payments or bail bonds
-* Users cannot track real-time locations of suspects
-* Users cannot manage classified or confidential clearance levels
-
-## Functional Requirements
-
-In this section you should answer the following questions:
-
-* What should a user be able to do with your database?
-* What's beyond the scope of what a user should be able to do with your database?
-
 ## Representation
 
 ### Entities
 
-In this section you should answer the following questions:
+#### Cases
+The `cases` table represents criminal cases with the following attributes:
+* `id` — INTEGER PRIMARY KEY, uniquely identifies each case
+* `case_number` — TEXT NOT NULL UNIQUE, official reference number
+* `title` — TEXT NOT NULL, short descriptive name of the case
+* `type` — TEXT with CHECK constraint limiting to Murder, Robbery,
+Fraud, Assault, Kidnapping, or Other
+* `status` — TEXT NOT NULL with DEFAULT 'Open' and CHECK constraint
+limiting to Open, Closed, Cold, or Under Investigation
+* `opened_date` — DATE NOT NULL, when the case was filed
+* `closed_date` — DATE, nullable since cases may still be open
+* `description` — TEXT, nullable summary of the case
 
-* Which entities will you choose to represent in your database?
-* What attributes will those entities have?
-* Why did you choose the types you did?
-* Why did you choose the constraints you did?
+The CHECK constraints on `type` and `status` were chosen to ensure
+data integrity and prevent invalid entries. `closed_date` is nullable
+because an open case has no closing date yet.
+
+#### Suspects
+The `suspects` table stores individuals linked to cases:
+* `id` — INTEGER PRIMARY KEY AUTOINCREMENT
+* `first_name`, `last_name` — TEXT NOT NULL, required for identification
+* `dob` — DATE NOT NULL, date of birth for identity verification
+* `gender` — TEXT NOT NULL with CHECK constraint (Male, Female, Other)
+* `nationality` — TEXT NOT NULL
+* `contact_info` — TEXT, nullable as it may not always be available
+* `status` — TEXT NOT NULL DEFAULT 'At Large' with CHECK constraint
+limiting to At Large, Arrested, Convicted, or Released
+* `criminal_record` — TEXT, nullable as first-time suspects may have none
+
+#### Victims
+The `victims` table stores individuals harmed in cases:
+* `id` — INTEGER PRIMARY KEY AUTOINCREMENT
+* `first_name`, `last_name` — TEXT NOT NULL
+* `dob` — DATE NOT NULL
+* `gender` — TEXT NOT NULL with CHECK constraint
+* `nationality` — TEXT NOT NULL
+* `contact_info` — TEXT, nullable as victims may wish to remain anonymous
+* `statement` — TEXT, nullable as a victim may not have given one yet
+
+#### Investigators
+The `investigators` table stores law enforcement officers:
+* `id` — INTEGER PRIMARY KEY AUTOINCREMENT
+* `badge_number` — TEXT NOT NULL UNIQUE, every officer has a unique badge
+* `first_name`, `last_name` — TEXT NOT NULL
+* `dob` — DATE NOT NULL
+* `gender` — TEXT NOT NULL with CHECK constraint
+* `rank` — TEXT NOT NULL with CHECK constraint limiting to Detective,
+Sergeant, Lieutenant, Captain, or Officer
+* `department` — TEXT, nullable as it may not always be specified
+* `contact_info` — TEXT, nullable
+
+#### Evidence
+The `evidence` table tracks items collected for cases:
+* `id` — INTEGER PRIMARY KEY AUTOINCREMENT
+* `case_id` — INTEGER NOT NULL, foreign key referencing cases
+* `type` — TEXT NOT NULL, type of evidence (Weapon, DNA, Digital, etc.)
+* `description` — TEXT, nullable details about the item
+* `collected_date` — DATE NOT NULL
+* `collected_by` — INTEGER NOT NULL, foreign key referencing investigators
+* `location_found` — TEXT NOT NULL, where the evidence was collected
+* `status` — TEXT NOT NULL with CHECK constraint limiting to
+In Storage, Submitted to Lab, or Destroyed
+
+ON DELETE CASCADE was used on foreign keys so that if a case is
+deleted, all related evidence is automatically removed.
+
+#### Junction Tables
+Three junction tables handle many-to-many relationships:
+* `case_suspects` — links cases to suspects with a role and date linked
+* `case_victims` — links cases to victims with a harm type
+* `case_investigators` — links cases to investigators with a role
+and assigned date
+
+Each uses a composite PRIMARY KEY to prevent duplicate links.
+
+#### Reports
+The `reports` table stores documents filed by investigators:
+* `id` — INTEGER PRIMARY KEY AUTOINCREMENT
+* `case_id` — INTEGER NOT NULL, foreign key referencing cases
+* `investigator_id` — INTEGER NOT NULL, foreign key referencing investigators
+* `report_date` — DATE NOT NULL
+* `type` — TEXT NOT NULL with CHECK constraint limiting to
+Incident, Progress, Closing, or Forensic
+* `content` — TEXT, nullable as a report may be in progress
 
 ### Relationships
+cases ──< case_suspects >── suspects
+cases ──< case_victims  >── victims
+cases ──< case_investigators >── investigators
+cases ──< evidence
+cases ──< reports
 
-In this section you should include your entity relationship diagram and describe the relationships between the entities in your database.
+* A **case** can have many **suspects**, and a **suspect** can be
+linked to many **cases** (many-to-many via `case_suspects`)
+* A **case** can have many **victims**, and a **victim** can appear
+in many **cases** (many-to-many via `case_victims`)
+* A **case** can have many **investigators**, and an **investigator**
+can be assigned to many **cases** (many-to-many via `case_investigators`)
+* A **case** can have many **evidence** items (one-to-many)
+* A **case** can have many **reports** (one-to-many)
 
 ## Optimizations
 
