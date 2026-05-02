@@ -2,7 +2,7 @@
 
 By Harsini Jegatheesan
 
-Video overview: <URL HERE>
+Video overview: [![Watch the video](https://i.ytimg.com/vi/DYH0QgOpklM/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAIhCGAHYAQHiAQoIGBACGAY4AUAB&rs=AOn4CLBjtKCpdqjShLuEY4JGSSp_y-DTVQ)](https://youtu.be/DYH0QgOpklM?si=GBHNCJx5ogswYXFO)
 
 ## Scope
 
